@@ -8,7 +8,7 @@ graph = [[] for i in range(v)]
 
 def best_first_search(source, target, n):
 	visited = [0] * n
-	visited = True
+	visited[0] = True
 	pq = PriorityQueue()
 	pq.put((0, source))
 	while pq.empty() == False:
@@ -19,8 +19,8 @@ def best_first_search(source, target, n):
 			break
 
 		for v, c in graph[u]:
-			if visited == False:
-				visited[0] = True
+			if visited[v] == False:
+				visited[v] = True
 				pq.put((c, v))
 	print()
 
@@ -51,4 +51,3 @@ addedge(9, 13, 2)
 source = 0
 target = 9
 best_first_search(source, target, v)
-
